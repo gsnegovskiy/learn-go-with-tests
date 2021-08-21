@@ -24,5 +24,5 @@ func (r Rectangle) Perimeter() float64 {
 }
 
 func (r Circle) Area() float64 {
-	return r.Radius * math.Pi
+	return math.Pow(r.Radius, 2) * math.Pi
 }
