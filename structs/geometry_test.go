@@ -25,16 +25,18 @@ func TestArea(t *testing.T) {
 			t.Errorf("got %.2f want %.2f", got, want)
 		}
 	}
+	checkArea := func(t testing.TB, shape Shape, want float64) {
+		t.Helper()
+		got := shape.Area()
+		assertCorrectMessage(t, got, want)
+	}
+
 	t.Run("Calculate rectangle area", func(t *testing.T) {
 		rectangle := Rectangle{10.0, 10.0}
-		got := Rectangle.Area(rectangle)
-		want := 100.0
-		assertCorrectMessage(t, got, want)
+		checkArea(t, rectangle, 100.0)
 	})
 	t.Run("Calculate circle area", func(t *testing.T) {
 		circle := Circle{100.0}
-		got := Circle.Area(circle)
-		want := 314.1592653589793
-		assertCorrectMessage(t, got, want)
+		checkArea(t, circle, 314.1592653589793)
 	})
 }
